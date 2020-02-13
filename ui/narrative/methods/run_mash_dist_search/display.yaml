@@ -44,6 +44,11 @@ parameters :
             Maximum number of results to return
         short-hint : |
             Maximum number of results to return
+    cache :
+        ui-name : |
+            Use Cache
+        short-hint: |
+            check to use cached data, if the same inputs have been used before.
 
 description : |
     <p>

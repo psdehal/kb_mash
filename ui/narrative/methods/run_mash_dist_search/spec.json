@@ -54,6 +54,18 @@
                 "min_int":1,
                 "max_int":500
             }
+        },
+        {
+          "id":"cache",
+          "optional": false,
+          "advanced": true,
+          "allow_multiple": false,
+          "default_values":[ 1 ],
+          "field_type":"checkbox",
+          "checkbox_options": {
+            "unchecked_value" : 0,
+            "checked_value" : 1
+          }
         }
     ],
     "behavior": {
@@ -63,8 +75,8 @@
             "method": "run_mash_dist_search",
             "input_mapping": [
                 {
-                    "narrative_system_variable": "workspace",
-                    "target_property": "workspace_name"
+                  "narrative_system_variable": "workspace",
+                  "target_property": "workspace_name"
                 },
                 {
                   "input_parameter": "input_upa",
@@ -72,12 +84,16 @@
                   "target_type_transform": "resolved-ref"
                 },
                 {
-                    "input_parameter": "search_db",
-                    "target_property": "search_db"
+                  "input_parameter": "search_db",
+                  "target_property": "search_db"
                 },
                 {
-                    "input_parameter":"n_max_results",
-                    "target_property":"n_max_results"
+                  "input_parameter": "n_max_results",
+                  "target_property": "n_max_results"
+                },
+                {
+                  "input_parameter": "cache",
+                  "target_property": "cache"
                 }
             ],
             "output_mapping": [

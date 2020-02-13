@@ -3,7 +3,7 @@ import unittest
 import os  # noqa: F401
 import time
 import shutil
-
+import json
 from installed_clients.ReadsUtilsClient import ReadsUtils
 
 from os import environ
@@ -146,6 +146,17 @@ class kb_mashTest(unittest.TestCase):
         params = {'input_upa': self.get_genome_ref(ws_name), 'workspace_name': ws_name,
                   'search_db':'NCBI_Refseq', 'n_max_results':10}
         self.getImpl().run_mash_dist_search(self.getContext(), params)
+
+    def test_mash_search_with_caching(self):
+        ws_name = self.getWsName()
+        params = {
+            'input_upa': self.get_genome_ref(ws_name),
+            'workspace_name': ws_name,
+            'search_db':'NCBI_Refseq',
+            'n_max_results':10,
+            'cache': 1
+        }
+        ret = self.getImpl().run_mash_dist_search(self.getContext(), params)
 
     def test_mash_sketch_valid_local(self):
         dir_path = os.path.dirname(os.path.realpath(__file__))
